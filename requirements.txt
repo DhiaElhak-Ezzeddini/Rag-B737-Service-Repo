@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pdfplumber
+sentence-transformers
+faiss-cpu
+python-dotenv
+requests
+transformers
+torch
+numpy
+tqdm
+nltk
