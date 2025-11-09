@@ -10,3 +10,9 @@ torch
 numpy
 tqdm
 nltk
+PyMuPDF
+tqdm
+accelerate
+bitsandbytes
+dotenv
+faiss-cpu
