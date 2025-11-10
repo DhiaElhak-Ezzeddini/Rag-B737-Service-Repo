@@ -6,8 +6,8 @@ from typing import List, Dict, Any,Tuple
 import google.generativeai as genai
 from google.generativeai.types import GenerationConfig
 
-from sentence_transformers import SentenceTransformer
-embedding_model = SentenceTransformer(model_name_or_path="all-mpnet-base-v2",device="cpu")
+# from sentence_transformers import SentenceTransformer
+# embedding_model = SentenceTransformer(model_name_or_path="all-mpnet-base-v2",device="cpu")
 
 # --- Configuration ---
 
@@ -112,14 +112,12 @@ async def get_text_embedding(text: str, task_type: str = "RETRIEVAL_DOCUMENT", r
     delay = 1
     for i in range(retries):
         try:
-            """result = await genai.embed_content_async(
+            result = await genai.embed_content_async(
                 model=EMBEDDING_MODEL_NAME,
                 content=text,
                 task_type=task_type
             )
-            return result['embedding']"""
-            embedding = embedding_model.encode(text)
-            return embedding
+            return result['embedding']
         except Exception as e:
             if "Resource has been exhausted" in str(e) or "429" in str(e):
                 print(f"Rate limit hit on embedding. Retrying in {delay}s... (Attempt {i+1}/{retries})")
