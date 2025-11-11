@@ -10,10 +10,9 @@ from RAG_SERVICES.vector_store import DualFAISSVectorStore
 from RAG_SERVICES.model_wrapper import get_text_embedding, get_multimodal_rag_response
 
 # --- Configuration ---
-DATA_DIR = "new_modified_data"
-TEXT_INDEX_PATH = os.path.join(DATA_DIR, "manual_text.index")
-DIAGRAM_INDEX_PATH = os.path.join(DATA_DIR, "manual_diagram.index")
-JSON_MAPPING_PATH = os.path.join(DATA_DIR, "manual.json")
+TEXT_INDEX_PATH = os.getenv("TEXT_INDEX_PATH","new_data/manual_text.index")
+DIAGRAM_INDEX_PATH = os.getenv("DIAGRAM_INDEX_PATH","new_data/manual_diagram.index")
+JSON_MAPPING_PATH = os.getenv("JSON_MAPPING_PATH","new_data/manual.json")
 
 # --- FastAPI Setup ---
 app = FastAPI(title="Multimodal Boeing 737 RAG API", description="Retrieval-Augmented Generation with Text + Diagram Context.")
@@ -54,11 +53,7 @@ async def query_rag(request: QueryRequest):
         # 3. Generate final multimodal answer
         final_answer = await get_multimodal_rag_response(request.question, retrieved_chunks)
 
-        return {
-            "question": request.question,
-            "answer": final_answer,
-            "retrieved_chunks": retrieved_chunks
-        }
+        return final_answer
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
