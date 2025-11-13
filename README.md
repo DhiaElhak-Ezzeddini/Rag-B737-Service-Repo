@@ -10,10 +10,9 @@
 2. [Architecture: The RAG Pipeline](#2-architecture-the-rag-pipeline)  
    - [2.1 The Indexing Phase (Corpus Preparation)](#21-the-indexing-phase-corpus-preparation)  
    - [2.2 The Retrieval Phase (Contextual Search)](#22-the-retrieval-phase-contextual-search)  
-   - [2.3 The Generation Phase (Grounded Response)](#23-the-generation-phase-grounded-response)  
-3. [File / Folder Overview](#3-file--folder-overview)  
-4. [How to run (local, minimal)](#4-how-to-run-local-minimal)  
-5. [Notes, configuration & best practices](#5-notes-configuration--best-practices)  
+   - [2.3 The Generation Phase (Grounded Response)](#23-the-generation-phase-grounded-response)    
+3. [How to run (local, minimal)](#4-how-to-run-local-minimal)  
+4. [Notes, configuration & best practices](#5-notes-configuration--best-practices)  
 
 ---
 
