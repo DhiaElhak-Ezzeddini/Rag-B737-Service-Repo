@@ -8,7 +8,7 @@ st.markdown("Retrieve and analyze Boeing 737 manual content using multimodal RAG
 
 query = st.text_input("Enter your question:", placeholder="e.g. What does the FUEL PUMP switch do?")
 
-API_URL = "http://127.0.0.1:8000/query"  # FastAPI endpoint
+API_URL = "http://127.0.0.1:8000/query"  
 
 if st.button("Get Answer"):
     if not query.strip():
